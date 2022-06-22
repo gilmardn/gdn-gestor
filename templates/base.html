@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/script.js"></script>
+
+    <link rel="icon" type="image/png" href="../static/img/logox.png">
+    {% block head %}
+
+    {% endblock head %}
+
+    <title>Gestão Pessoal</title>
+</head>
+
+<body>
+    <i class="bi bi-list menu-mobile"></i>
+    <aside id="header">
+        <section class="profile">
+
+            {% if current_user.is_authenticated %}
+            <img src="../static/img/{{ current_user.imagem }}" alt="Foto">
+            <h1>{{ current_user.name }}</h1>
+            {% else %}
+            <img src="../static/img/logo.jpg" alt="Foto">
+            <h1>Visitante</h1>
+            {% endif %}
+            <br>
+            <div class="social-links mt-4 text-center">
+                <a tagget="_blank" href="http://www.linkedin.com">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a tagget="_blank" href="http://www.github.com">
+                    <i class="bi bi-github"></i>
+                </a>
+                <a tagget="_blank" href="http://www.youtube.com">
+                    <i class="bi bi-youtube"></i>
+                </a>
+                <a tagget="_blank" href="http://www.instagram.com">
+                    <i class="bi bi-instagram"></i>
+                </a>
+            </div>
+        </section>
+        <br>
+        <nav id="navbar" class="nav-menu">
+            <ul class="nav flex-column">
+
+                {% if current_user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{url_for('lista')}}">
+                        <i class="bi bi-house" aria-hidden="true"></i>
+                        Listagem Contas
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('addMovDesp')}}">
+                        <i class="bi bi-collection"></i>
+                        Lançar Despesas
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('addMovRec')}}">
+                        <i class="bi bi-collection"></i>
+                        Lançar Receitas
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('addconta')}}">
+                        <i class="bi bi-collection"></i>
+                        Cadastro Contas
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('grafico1')}}">
+                        <i class="bi bi-bar-chart-fill"></i>
+                        Grafico Rec. X Desp.
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('grafico2')}}">
+                        <i class="bi bi-bar-chart-fill"></i>
+                        Grafico Despesas
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('grafico3')}}">
+                        <i class="bi bi-bar-chart-fill"></i>
+                        Grafico Categorias
+                    </a>
+                </li>
+                {% if current_user.admin%}
+                <li class="nav-item">
+                    <a class="nav-link  active" href="/admin">
+                        <i class="bi bi-folder2"></i>
+                        Admin
+                    </a>
+                </li>
+                {% endif %}
+
+                {% else %}
+
+                <form method="post" name="meuForm">
+
+                    <li class="nav-item">
+                        <div class="row mb-3">
+
+                            <div class="col-sm-10">
+                                <input type="text" name="usuario" class="form-control" id="inputUsuario3"
+                                    placeholder="Usuario">
+                            </div>
+                        </div>
+
+                    </li>
+                    <li class="nav-item">
+                        <div class="row mb-3">
+
+                            <div class="col-sm-10">
+                                <input type="password" name="password" class="form-control" id="inputPassword3"
+                                    placeholder="Senha">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="row mb-3">
+                            <div class="d-grid gap-2 col-10 mx">
+                                <button type="submit" class="btn btn-primary">Entrar</button>
+                            </div>
+                        </div>
+                    </li>
+                    {% if not current_user.is_authenticated %}
+
+                    <li class="nav-item">
+                        <div class="row mb-3">
+
+                            <a class="btn btn-link" href="{{url_for('adduser')}}">Cadastrar-se</a>
+
+                        </div>
+                    </li>
+
+                    {% endif %}
+                </form>
+                {% endif %}
+            </ul>
+        </nav>
+    </aside>
+    <main id="main">
+        <section id="inicio">
+
+            <div class="d-flex flex-row" style="background-color: #bce1f2">
+                <div class="col"></div>
+                <div class="col"></div>
+
+                <form action="" method="post" name="myForm">
+                    <div class="d-flex flex-nowrap bd-highlight">
+                        {% if current_user.is_authenticated %}
+                        <div class="order-1 p-2 bd-highlight">
+                            <label for="inputdescricao3" class="col-sm-3 col-form-label"
+                                style="margin: .5em auto 0em;">De</label>
+                        </div>
+                        <div class="order-2 p-3 bd-highlight">
+                            <input type="date" name="xdata" value={{data_inicial}} class="form-control"
+                                id="formInputDate" placeholder="">
+                        </div>
+                        <div class="order-3 p-2 bd-highlight">
+                            <label for="inputdescricao3" class="col-sm-2 col-form-label"
+                                style="margin: .5em auto 0em">até</label>
+                        </div>
+
+                        <div class="order-4 p-3 bd-highlight">
+                            <input type="date" name="xdata" value={{data_final}} class="form-control" id="formInputDate"
+                                placeholder="">
+                        </div>
+
+                        <div class="order-5 p-3 bd-highlight">
+                            <button type="submit" class="btn btn-outline-info btn-sm" style="margin: .3em auto 0em">
+                                Atualizar
+                            </button>
+                        </div>
+
+                        <div class="order-5 p-2 bd-highlight">
+                            <a class="btn btn-link" style="margin: .5em auto 0em" href="{{url_for('logout')}}">Sair</a>
+
+                        </div>
+                        {% else %}
+                        <div class="order-5 p-2 bd-highlight">
+                            <a class="btn btn-link" style="margin: .5em auto 0em"
+                                href="{{url_for('adduser')}}">Cadastrar-se</a>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </form>
+            </div>
+
+
+            <!------------------------------------------------------------>
+            {% block topo %}
+            {% endblock topo %}
+            <!------------------------------------------------------------>
+            {% block corpo %}
+            {% endblock corpo %}
+            <!------------------------------------------------------------>
+            {% block baixo %}
+            {% endblock baixo %}
+
+
+        </section>
+    </main>
+
+</body>
+
+</html>

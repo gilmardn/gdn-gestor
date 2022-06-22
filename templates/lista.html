@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+<!------  https://datatables.net/manual/data/     ---------------->
+
+
+{% block head %}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+</script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "scrollY": '50vh',
+            "scrollCollapse": true,
+            "paging": false,
+            "ordering": true,
+            "info": false,
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Exibir _MENU_ registros por página",
+                "sZeroRecords": "Nenhum resultado encontrado",
+                "sEmptyTable": "Nenhum resultado encontrado",
+                "sInfo": "Exibindo do _START_ até _END_ de um total de _TOTAL_ registros",
+                "sInfoEmpty": "Exibindo do 0 até 0 de um total de 0 registros",
+                "sInfoFiltered": "(Filtrado de um total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfodecimal": ".",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Próximo",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Ativar para ordenar a columna de maneira ascendente",
+                    "sSortDescending": ": Ativar para ordenar a columna de maneira descendente"
+                }
+            }
+        });
+
+    });
+</script>
+{% endblock head %}
+
+{% block topo %}
+<div class="col" style="background-color:  #e0faff; height: 100px; ">
+    {% include "_messages.html" %}
+</div>
+{% endblock topo %}
+
+
+
+
+{% block corpo %}
+<div class="col-md-11 d-flex justify-content align-items-center flex-column">
+
+    <div class="container" style="width: 80%; height: 100%; border-style:ridge; background-color: #bce1f2">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-6">
+                <h4 class="text-Info-center text-shadow mt-3">{{ titulo }}</h4>
+            </div>
+            <div class="col text-end mt-3">
+                <a href="/" class="btn btn-outline-info  btn-sm" style="padding: 1px 5px;" role="button">x</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container" style="width: 80%; height: 100%; border-style:ridge; background-color: #d4edf7;">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead style="width: 100%; height: 100%; border-style:ridge; background-color: #98d9f7;">
+
+                <tr align="center">
+                    <th>Cód.</th>
+                    <th>Categoria</th>
+                    <th>Tipo</th>
+                    <th>Descrição</th>
+                    <th>Despesa</th>
+                    <th>Receitas</th>
+                    <th>Consulta</th>
+                </tr>
+            </thead>
+            <tbody style="background-color: #c2e8fa;">
+                {% for i in contas %}
+                {% if i.saldo > 0.1 %}
+
+
+                <tr>
+
+                    {% if i.operacao == 'RECEITA' %}
+                    <td align="center" style="color: rgb(24, 14, 221);">{{i.id}}</td>
+                    <td style="color: rgb(24, 14, 221);">{{ i.operacao }} {{ i.tipo }}</td>
+                    <td style="color: rgb(24, 14, 221);">{{ i.categoria }}</td>
+                    <td style="color: rgb(24, 14, 221);">{{ i.conta }}</td>
+                    <td align="end" style="color: rgb(24, 14, 221);">0.00</td>
+                    <td align="end" style="color: rgb(24, 14, 221);">{{ i.saldo }}</td>
+                    <td align="center">
+                        <a href="/listamov/{{i.id}}" class="btn btn-outline-info btn-sm" style="padding: 1px 5px;"
+                            role="button">Consulta<a>
+                    </td>
+                    {% else %}
+                    <td align="center" style="color: rgb(0, 0, 0);">{{i.id}}</td>
+                    <td style="color: rgb(0, 0, 0);">{{ i.operacao }} {{ i.tipo }}</td>
+                    <td style="color: rgb(0, 0, 0);">{{ i.categoria }}</td>
+                    <td style="color: rgb(0, 0, 0);">{{ i.conta }}</td>
+                    <td align="end" style="color: rgb(0, 0, 0);">{{ i.saldo }}</td>
+                    <td align="end" style="color: rgb(0, 0, 0);">0.00</td>
+                    <td align="center">
+                        <a href="/listamov/{{i.id}}" class="btn btn-outline-info btn-sm" style="padding: 1px 5px;"
+                            role="button">Consulta<a>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+            <tfoot>
+
+                <th class="col text-center"
+                    style="width: 100%; height: 100%; border-style:ridge; background-color: #bce1f2">
+                    <a href="/" class="btn btn-primary  btn-sm "  style="padding: 1px 5px; width: 100%; background-color: #61ccfd; color: #021124; font-weight: bold;" role="button">V o l t a
+                        r</a>
+                    
+                </th>
+
+            </tfoot>
+
+        </table>
+
+    </div>
+    <br>
+
+</div>
+
+
+
+{% endblock corpo %}

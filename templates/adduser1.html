@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block topo %}
+<div class="col" style="background-color:  #e0faff; height: 140px; ">
+  {% include "_messages.html" %}
+</div>
+{% endblock topo %}
+
+{% block corpo %}
+<div class="col-md-10 d-flex justify-content align-items-center flex-column">
+  <div class="align-self-center mt-5">
+    <div class="container" style="width: 130%; height: 100%; border-style:none;">
+      <div class="row" style="border-style:ridge;">
+        <div class="col-xs-6" style="background-color: #bce1f2;">
+
+          <div class="row">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-8">
+              <h4 class="text-Info-center text-shadow mt-3">{{ titulo }}</h4>
+            </div>
+            <div class="col text-end mt-3">
+              <a href="/" class="btn btn-outline-info  btn-sm" style="padding: 1px 5px;" role="button">x</a>
+            </div>
+          </div>
+          <hr>
+          </hr>
+          <form action="/adduser" method="POST" autocomplete="off">
+            <div class="row mb-2">
+              <label for="inputUsername3" class="col-sm-2 col-form-label">Usuario</label>
+              <div class="col-sm-10">
+                <input type="text" name="username" class="form-control" id="inputUsername3">
+              </div>
+            </div>
+            <div class="row mb-2">
+              <label for="inputname3" class="col-sm-2 col-form-label">Nome</label>
+              <div class="col-sm-10">
+                <input type="text" name="name" class="form-control" id="inputname3">
+              </div>
+            </div>
+            <div class="row mb-2">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" name="email" class="form-control" id="inputEmail3">
+              </div>
+            </div>
+            <div class="row mb-2">
+              <label for="inputsenha3" class="col-sm-2 col-form-label">Senha</label>
+              <div class="col-sm-10">
+                <input type="password" name="password" class="form-control" id="inputsenha3">
+              </div>
+            </div>
+            <div class="row mb-2">
+              <label for="inputConfirmar3" class="col-sm-2 col-form-label">Confirmar</label>
+              <div class="col-sm-10">
+                <input type="password" name="password" class="form-control" id="inputConfirmar3">
+              </div>
+            </div>
+            <div class="row mb-1">
+              <div class="custom-file">
+                <label for="inputPasswoo3" class="col-sm-2 col-form-label">Foto</label>
+                <input type="file" accept="image/jpeg" class="custom-file-outline-info-input" enctype="multipart/form-data" name="minhaimage"
+                  id="customFileLang" lang="pt-br">
+                <label class="custom-file-label" for="customFileLang"></label>
+              </div>
+            </div>
+            <div class="row mb-0">
+              <hr>
+              </hr>
+              <div class="col  text-end">
+                <a class="btn btn-outline-info btn-sm" style="margin: 0em auto 1em;"
+                  href="{{url_for('adduser')}}">Cancelar</a>
+                <button type="submit" class="btn btn-outline-primary  btn-sm" style="margin: 0em auto 1em;"> S a l v a r
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  {% endblock corpo %}

@@ -1,0 +1,78 @@
+pip install --upgrade pip
+pip install flask
+pip install flask-sqlalchemy
+pip install pymysql
+pip install flask-migrate
+pip install Flask-Script
+pip install flask-wtf
+pip install flask_bcrypt
+pip install Flask-Reuploaded
+pip install flask_login
+pip install flask-admin
+
+
+
+
+ python -m venv .venv           # CRIAR UMA PASTA VIRTUAL
+.venv\scripts\activate          # Entrar virtual venv
+.venv\scripts\deactivate        # Desativa virtual venv
+
+
+=========================================
+/d/gdn/gestaogdn
+source .venv/scripts/activate
+export FLASK_APP=app.py
+export FLASK_ENV=development
+==========================================
+set .venv/scripts/activate
+set FLASK_APP=app.py
+set FLASK_ENV=development
+==========================================
+/d/gdn/gestaogdn/projeto
+
+flask run
+=========================================
+
+
+pip freeze                       # Verifica as Bibliotecas instaladas
+pip freeze > requirements.txt    # Salva Bibliotecas instaladas
+pip install -r requirements.txt  # instala Bibliotecas requeridas
+
+.venv\scripts\pip install flask-sqlalchemy
+.venv\scripts\pip install flask-migrate
+.venv\scripts\pip install flask-script
+.venv\scripts\pip install flask-wtf
+
+form validation with wtfforms
+pip install -U Werkzeug==2.0.1
+
+set FLASK_APP=app.py            # Caminho do APP       # indica em modo de desenvolvimento
+source FLASK_APP=app.py            # Caminho do APP       # indica em modo de desenvolvimento
+
+pip install -e .["dev"]         # Instala projeto
+pip uninstall delivery          # Desinstala projeto
+Make                            # Executa direto no terminal
+flask run                       # Executa
+which (python)                  # Verifica origem do Python
+code .                          # Entra VS Code 
+ipython                         # Entra ipython 
+-----------------------------------------------------
+python -c "print(1+5)"          #  Executa linha de Comando
+python -V                       #  Versão de Python
+python -v                       #  mostra arquivos
+python -m                       #  Chama modulos do Python
+python -m http.server           #  Cria servidor web embutido Python
+python -m venv .venv            #  Cria virtual venv  
+python -V                       # Versão de Python 
+pip list                        # Lista Bibliotecas instaladas
+exit                            # sair
+quit()                          # sair
+cls                             # limpa
+-----------------------------------------------------
+pytest test_basico.py -v
+pytest tests/ --fixtures
+
+   
+
+python vertabelo_flask_sqlalchemy.py -i todo.xml -o models_todo.py
+

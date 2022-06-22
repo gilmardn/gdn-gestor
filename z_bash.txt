@@ -1,0 +1,25 @@
+=============== Comandos do Bash ==========================================
+
+~/              -  inicia na diretorio  Home
+ls              -  lista
+ls -l           -  lista com mais detalhes
+cd  nome        -  vai para o diretorio
+cd  /nome       -  vai para o diretorio especifico
+pwd             -  Pasta em que voce esta trabalhando
+mkdir nome      -  cria um diretorio
+touch nome.txt  -  Cria um arquivo
+rm nome         -  remove o arquivo
+cd ..           -  nivel acima do diretorio
+cd ../..        -  dois nivel acima do diretorio
+
+
+=============== Caminhos no Diretorio =====================================
+
+../     – Com este símbolo podemos voltar um diretório
+./      – Acessando arquivos desta forma você está querendo acessar os arquivos que estão no diretório atual
+/       – Utilizando o símbolo de barra você está indo até a raiz do projeto
+../../  – Com esta sequência você está voltando duas pastas/diretórios
+
+
+
+duvidas:    https://www.youtube.com/watch?v=sCFY4GYXMhc

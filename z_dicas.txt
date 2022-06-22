@@ -1,0 +1,38 @@
+style="margin: 1em;"             -   Aplica para todos os quatro lados        
+style="margin: 5% auto;"         -   vertical | horizontal         
+style="margin: 1em auto 2em;"    -   topo | horizontal | inferior   
+style="margin: 2px 1em 0 auto;"   -  topo | direita | inferior | esquerda
+
+gdngestor
+
+
+Valores globais
+-----------------
+margin: inherit;
+margin: initial;
+margin: unset;
+        
+----   Conta   Heroku ------------
+
+
+https://www.heroku.com/
+
+gilmardn79@gmail.com
+senha -  Python@3030
+---------------------------------
+
+Deploy no Heroku
+
+heroku logs --tail --app gdngestor
+
+https://www.youtube.com/watch?v=n4wFqLm98x0
+https://www.youtube.com/watch?v=VgqYlAm7CF4&t=495
+
+https://www.heroku.com/
+
+git branch -M main
+pip install gunicorn
+pip freeze > requirements.txt
+heroku login
+
+

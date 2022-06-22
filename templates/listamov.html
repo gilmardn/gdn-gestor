@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+<!------  https://datatables.net/manual/data/     ---------------->
+
+
+{% block head %}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "scrollY": '50vh',
+            "scrollCollapse": true,
+            "paging": false,
+            "ordering": true,
+            "info": false,
+
+            "language": {
+
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Exibir _MENU_ registros por página",
+                "sZeroRecords": "Nenhum resultado encontrado",
+                "sEmptyTable": "Nenhum resultado encontrado",
+                "sInfo": "Exibindo do _START_ até _END_ de um total de _TOTAL_ registros",
+                "sInfoEmpty": "Exibindo do 0 até 0 de um total de 0 registros",
+                "sInfoFiltered": "(Filtrado de um total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfodecimal": ".",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Próximo",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Ativar para ordenar a columna de maneira ascendente",
+                    "sSortDescending": ": Ativar para ordenar a columna de maneira descendente"
+                }
+            }
+        });
+
+    });
+</script>
+{% endblock head %}
+
+{% block topo %}
+<div class="col" style="background-color:  #e0faff; height: 100px; ">
+    {% include "_messages.html" %}
+</div>
+{% endblock topo %}}
+
+
+{% block corpo %}
+<div class="col-md-11 d-flex justify-content align-items-center flex-column">
+    <div class="container" style="width: 80%; height: 90%; border-style:ridge; background-color: #bce1f2">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-6">
+                <h4 class="text-Info-center text-shadow mt-3">{{ titulo }}</h4>
+            </div>
+            <div class="col text-end mt-3">
+                <a href="/lista" class="btn btn-outline-info  btn-sm" style="padding: 1px 5px;" role="button">x</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container" style="width: 80%; height: 90%; border-style:ridge; background-color: #d4edf7;">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead style="width: 100%; height: 100%; border-style:groove; background-color: #98d9f7;">
+                <tr align="center">
+                    <th>Id</th>
+                    <th>Data</th>
+                    <th>Conta</th>
+                    <th>Historico</th>
+                    <th>Valor</th>
+                    <th>Excluir</th>
+                </tr>
+            </thead>
+            <tbody style="background-color: #bce1f2;">
+                {% set val = 0 %}
+                {% for i in despesas %}
+                {% set dt = i.dta.strftime("%d/%m/%Y") %}
+                {% set val = val + i.valor|float %}
+                <tr>
+                    <td align="center">{{ i.id }}</td>
+                    <td align="center"> {{dt}} </td>
+                    <td>{{conta }}</td>
+                    <td>{{ i.descricao }}</td>
+                    <td align="end">{{ val }}</td>
+                    <td align="center">
+                        <button type="button" class="btn btn-outline-danger btn-sm" style="padding: 1px 5px;"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal-{{i.id}}">
+                            Excluir
+                        </button>
+                    </td>
+                </tr>
+
+                <!-- Button trigger modal -->
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal-{{i.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">EXCLUSÃO</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <span class="test-danger">Deseja Realmente Excluir o Registro {{i.id}}</span>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-info  btn-sm"
+                                    data-bs-dismiss="modal">Cancelar</button>
+
+                                <form action="{{url_for('deleteMov', id=i.id)}}" method="post">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">Excluir</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                {% endfor %}
+            </tbody>
+            <tfoot>
+
+                <th class="col text-center"
+                    style="width: 100%; height: 100%; border-style:ridge; background-color: #bce1f2">
+                        <a href="/lista" class="btn btn-primary  btn-sm " style="padding: 1px 5px; width: 100%; background-color: #61ccfd; color: #021124; font-weight: bold; " role="button">V o l t a
+                            r</a>
+
+
+                </th>
+            </tfoot>
+
+        </table>
+    </div>
+    <br>
+
+</div>
+{% endblock corpo %}
