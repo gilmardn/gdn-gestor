@@ -16,21 +16,21 @@ def init_app(app):
         os.path.join(app.config['ROOT_DIR'], '..',
                      'models', app.config['DATABASE_FILE'])
 
-    if app.config['ENV'] == 'development':
-        app.config['SQLALCHEMY_ECHO'] = False
-        app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-        app.config['FLASK_ADMIN_SWATCH'] = 'flatly'  # united flatly cerulean
-        app.config['DEBUG_TB_TEMPLATE_EDITOR_ENABLED'] = True
-        app.config['DEBUG_TB_PROFILER_ENABLED'] = True
-        app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
-        app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+    # if app.config['ENV'] == 'development':
+    #app.config['SQLALCHEMY_ECHO'] = False
+    #app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    # app.config['FLASK_ADMIN_SWATCH'] = 'flatly'  # united flatly cerulean
+    #app.config['DEBUG_TB_TEMPLATE_EDITOR_ENABLED'] = True
+    #app.config['DEBUG_TB_PROFILER_ENABLED'] = True
+    #app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
+    #app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
-    elif app.config['ENV'] == 'production':
-        app.config['SQLALCHEMY_ECHO'] = False
-        app.config['DEBUG'] = False
-        app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-        app.config['FLASK_ADMIN_SWATCH'] = 'united'  # united flatly cerulean
-        app.config['DEBUG_TB_TEMPLATE_EDITOR_ENABLED'] = False
-        app.config['DEBUG_TB_PROFILER_ENABLED'] = False
-        app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = True
-        app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    # elif app.config['ENV'] == 'production':
+    app.config['SQLALCHEMY_ECHO'] = False
+    app.config['DEBUG'] = False
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+    app.config['FLASK_ADMIN_SWATCH'] = 'united'  # united flatly cerulean
+    app.config['DEBUG_TB_TEMPLATE_EDITOR_ENABLED'] = False
+    app.config['DEBUG_TB_PROFILER_ENABLED'] = False
+    app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = True
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
