@@ -36,3 +36,16 @@ pip freeze > requirements.txt
 heroku login
 
 
+2022-06-23T00:56:44.728055+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.10/site-packages/gunicorn/arbiter.py", line 393, in stop
+2022-06-23T00:56:44.728153+00:00 app[web.1]:     time.sleep(0.1)
+2022-06-23T00:56:44.728161+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.10/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+2022-06-23T00:56:44.728235+00:00 app[web.1]:     self.reap_workers()
+2022-06-23T00:56:44.728243+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.10/site-packages/gunicorn/arbiter.py", line 528, in reap_workers
+2022-06-23T00:56:44.728370+00:00 app[web.1]:     raise HaltServer(reason, self.APP_LOAD_ERROR)
+2022-06-23T00:56:44.728410+00:00 app[web.1]: gunicorn.errors.HaltServer: <HaltServer 'App failed to load.' 4>
+2022-06-23T00:56:44.873652+00:00 heroku[web.1]: Process exited with status 1
+2022-06-23T00:56:44.935799+00:00 heroku[web.1]: State changed from up to crashed
+2022-06-23T00:56:46.352085+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=gdncontas.herokuapp.com request_id=7723de14-4780-4319-9da2-5e31328d7309 fwd="179.106.92.97" dyno= connect= service= status=503 bytes= protocol=https
+
+
+https://gdncontas.herokuapp.com/

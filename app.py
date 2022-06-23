@@ -26,11 +26,13 @@ def create_app():
 
 
 if __name__ == "__main__":
-    #os.environ['FLASK_APP'] = 'app.py'
-    #os.environ['FLASK_ENV'] = 'production'
-    #os.environ['FLASK_ENV'] = 'development'
+    os.environ['FLASK_ENV'] = 'development'
+    # os.environ['FLASK_APP'] = 'app.py'
+    # os.environ['FLASK_ENV'] = 'production'
     app = create_app()
-    app.run()
+    
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
 
 
 #   https://www.youtube.com/watch?v=vRgay-IXeek
