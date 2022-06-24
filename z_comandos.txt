@@ -9,6 +9,8 @@ pip install flask_bcrypt
 pip install Flask-Reuploaded
 pip install flask_login
 pip install flask-admin
+pip install pytest      -     https://www.youtube.com/watch?v=Z1RdTV72W6I&t=387
+pip install pytest-flask
 
 
 
@@ -18,17 +20,19 @@ pip install flask-admin
 .venv\scripts\deactivate        # Desativa virtual venv
 
 
-=========================================
-/d/gdn/gestaogdn
+============= Bash ========================
+/d/gdn-gestor
 source .venv/scripts/activate
+which python  -   origem do Python
+which pytest  -   origem do Pytest
 export FLASK_APP=app.py
 export FLASK_ENV=development
-==========================================
+============== CMD =========================
 set .venv/scripts/activate
 set FLASK_APP=app.py
 set FLASK_ENV=development
 ==========================================
-/d/gdn/gestaogdn/projeto
+
 
 flask run
 =========================================
