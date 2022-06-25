@@ -9,8 +9,10 @@
 
 
 |=======  Deploy no Heroku ==============|
-|                                        |
 | heroku login                           |
+| heroku --version                       |
+| heroku logs --tail                     |
+|                            |
 |     ->  heroku create xxx-nome-unico   |
 | git push heroku main                   |
 |========================================|
@@ -27,6 +29,7 @@ git branch -M main
 pip install gunicorn
 pip freeze > requirements.txt
 heroku login
+
 
 
 https://gdncontas.herokuapp.com/

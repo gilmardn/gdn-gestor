@@ -28,6 +28,9 @@ def init_app(app):
 
     # ---ROTAS---------------------------------------------------------------
     @app.route('/', methods=['GET', 'POST'])
+    def index():
+        return "Este é um teste"
+
     @app.route('/inicio', methods=['GET', 'POST'])
     def inicio():
         if request.method == 'POST':
