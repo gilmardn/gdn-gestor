@@ -30,7 +30,7 @@ def init_app(app):
     @app.route('/')
     def index():
         return "Este é um teste"
-
+    
     @app.route('/inicio', methods=['GET', 'POST'])
     def inicio():
         if request.method == 'POST':
