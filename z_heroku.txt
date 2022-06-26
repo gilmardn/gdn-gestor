@@ -14,22 +14,9 @@
 | heroku logs --tail                     |
 |                            |
 |     ->  heroku create xxx-nome-unico   |
-| git push heroku main                   |
+| git push heroku master                   |
 |========================================|
 
 
-heroku logs --tail --app gdngestor
-
-https://www.youtube.com/watch?v=n4wFqLm98x0
-https://www.youtube.com/watch?v=VgqYlAm7CF4&t=495
-
-https://www.heroku.com/
-
-git branch -M main
-pip install gunicorn
-pip freeze > requirements.txt
-heroku login
-
-
-
 https://gdncontas.herokuapp.com/
+

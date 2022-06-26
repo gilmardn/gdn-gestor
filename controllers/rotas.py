@@ -27,10 +27,8 @@ def init_app(app):
         return "." in filename and filename.rsplit(".", 1)[1] in EXTENSOES_PERMITIDAS
 
     # ---ROTAS---------------------------------------------------------------
-    @app.route('/')
-    def index():
-        return "Este é um teste"
-    
+
+    @app.route('/', methods=['GET', 'POST'])
     @app.route('/inicio', methods=['GET', 'POST'])
     def inicio():
         if request.method == 'POST':
