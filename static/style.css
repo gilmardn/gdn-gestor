@@ -1,24 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-html,
-body {
+html, body {
     font-family: Ubuntu, Arial;
     width: 100%;
     height: 100%;
 }
-
-table{
-    font-size: 14px;
-
-}
-
-#formInputDate {
-   
-    padding: 4px;
-    border-radius: 4px;
-  
-}
-
 
 #header {
     position: fixed;
@@ -41,9 +27,7 @@ table{
     border: 8px solid #2c2f3f;
     border-radius: 50%;
     /* Arredondar Logo 
-
     border-radius: 50%;
-
     */
 }
 
@@ -111,8 +95,8 @@ table{
 }
 
 section#inicio {
-    /*  background-image: url("./img/fundo_azul.png");
-     */
+     /* background-image: url("./img/fundo_azul.png"); */
+    
     background-color: #e0faff;
     background-repeat: no-repeat;
     background-size: cover;
@@ -125,7 +109,7 @@ section#inicio {
 
 /*  */
 section#inicio h2 {
-    font-size: 2rem;
+    font-size: 6rem;
 }
 
 
@@ -138,11 +122,20 @@ section#inicio span#subtitle {
     text-shadow: 4px 4px 10px #000000;
 }
 
+section#inicio div#arraste {
+    width: 9rem;
+}
+
+section#inicio div#arraste a {
+    text-decoration: none;
+    color: #fff;
+}
+
 i.menu-mobile {
     position: fixed;
     color: #000000;
     right: 1rem;
-    top: 1rem;
+    top: 4.5rem;
     font-size: 1.5rem;
     border-radius: 4rem;
     cursor: pointer;
@@ -173,7 +166,12 @@ i.menu-mobile {
     }
 
     section#inicio h2 {
-        font-size: 1.5rem;
+        font-size: 3.5rem;
+    }
+
+    section#inicio span#subtitle {
+        margin-right: 0rem;
+        font-size: 1rem;
     }
 
     #main {
@@ -205,7 +203,7 @@ thead {
 
 
 /* -----------------------------
-
+   ----------------------------- */
 tbody	{
     font-style: italic;
     text-align: left;
@@ -217,10 +215,23 @@ tfooter {
     text-align: left;
     color: #009;
     }
-   ----------------------------- */
+
 
 hr {
     border-color: #aaa;
     box-sizing: border-box;
     width: 100%;
 }
+
+table{
+    font-size: 14px;
+
+}
+
+#formInputDate {
+   
+    padding: 4px;
+    border-radius: 4px;
+  
+}
+

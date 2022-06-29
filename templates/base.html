@@ -12,10 +12,9 @@
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../static/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../static/script.js"></script>
+   
 
     <link rel="icon" type="image/png" href="../static/img/logox.png">
     {% block head %}
@@ -56,7 +55,7 @@
         <br>
         <nav id="navbar" class="nav-menu">
             <ul class="nav flex-column">
-
+                <!--  ------------  Autenticado ----------------  -->
                 {% if current_user.is_authenticated %}
 
                 <li class="nav-item">
@@ -75,14 +74,14 @@
 
                 <li class="nav-item">
                     <a class="nav-link active" href="{{url_for('addMovRec')}}">
-                        <i class="bi bi-collection"></i>
+                        <i class="bi bi-envelope"></i>
                         Lançar Receitas
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link active" href="{{url_for('addconta')}}">
-                        <i class="bi bi-collection"></i>
+                        <i class="bi bi-file-earmark"></i>
                         Cadastro Contas
                     </a>
                 </li>
@@ -96,17 +95,18 @@
 
                 <li class="nav-item">
                     <a class="nav-link active" href="{{url_for('grafico2')}}">
-                        <i class="bi bi-bar-chart-fill"></i>
+                        <i class="bi bi-folder2"></i>
                         Grafico Despesas
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link active" href="{{url_for('grafico3')}}">
-                        <i class="bi bi-bar-chart-fill"></i>
+                        <i class="bi bi-list-check"></i>
                         Grafico Categorias
                     </a>
                 </li>
+             
                 {% if current_user.admin%}
                 <li class="nav-item">
                     <a class="nav-link  active" href="/admin">
@@ -116,7 +116,16 @@
                 </li>
                 {% endif %}
 
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('logout')}}">
+                        <i class="bi bi-list-check"></i>
+                        Sair
+                    </a>
+                </li>
+
+
                 {% else %}
+                <!--  ------------  Não Autenticado ----------------  -->
 
                 <form method="post" name="meuForm">
 
@@ -155,6 +164,7 @@
 
                         </div>
                     </li>
+                    
 
                     {% endif %}
                 </form>
@@ -164,7 +174,7 @@
     </aside>
     <main id="main">
         <section id="inicio">
-           
+
             <div class="d-flex flex-row" style="background-color: #bce1f2">
                 <div class="col"></div>
                 <div class="col"></div>
@@ -196,21 +206,23 @@
                             </button>
                         </div>
 
-                        <div class="order-5 p-2 bd-highlight">
+                        <!-- <div class="order-5 p-2 bd-highlight">
                             <a class="btn btn-link" style="margin: .5em auto 0em" href="{{url_for('logout')}}">Sair</a>
 
-                        </div>
+                        </div> -->
                         {% else %}
-                        <div class="order-5 p-2 bd-highlight">
+                        rem
+                        <!-- <div class="order-5 p-2 bd-highlight">
                             <a class="btn btn-link" style="margin: .5em auto 0em"
                                 href="{{url_for('adduser')}}">Cadastrar-se</a>
-                        </div>
+                        </div> -->
                         {% endif %}
 
                     </div>
                 </form>
-            </div>
-            
+            </div> 
+
+
             <!------------------------------------------------------------>
             {% block topo %}
             {% endblock topo %}
@@ -224,7 +236,8 @@
 
         </section>
     </main>
-
+   
+    <script src="../static/script.js"></script>
 </body>
 
 </html>

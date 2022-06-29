@@ -1,3 +1,4 @@
+
 /* Abre e fecha menu lateral em modo mobile */
 
 const menuMobile = document.querySelector('.menu-mobile')
