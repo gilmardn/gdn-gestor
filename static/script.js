@@ -19,3 +19,6 @@ $(document).ready(function () {
     $('#example').DataTable();
 });
 
+// $(window).resize(function () {
+//     drawVisualization();
+//   });

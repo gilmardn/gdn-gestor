@@ -40,7 +40,7 @@ def init_app(app):
                 return redirect(url_for('inicio'))
             else:
                 login_user(user)
-                return redirect(url_for('inicio'))
+                return redirect(url_for('lista'))
         return render_template('inicio.html')
 
     # ----------------------------------------------------------------------
@@ -268,7 +268,7 @@ def init_app(app):
                 # ----------------------------------------------------------------------------------
 
                 flash(f'Usuario {username} salvo com sucesso', 'success')
-                return redirect(url_for('adduser'))
+                return redirect(url_for('lista'))
             else:
                 flash(f'ERRO -  Dados incompletos', 'danger')
                 return redirect(url_for('adduser'))
