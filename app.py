@@ -26,9 +26,9 @@ def create_app():
 
 
 if __name__ == "__main__":
-    os.environ['FLASK_ENV'] = 'development'
+    #os.environ['FLASK_ENV'] = 'development'
     os.environ['FLASK_APP'] = 'app.py'
-    #os.environ['FLASK_ENV'] = 'production'
+    os.environ['FLASK_ENV'] = 'production'
     app = create_app()
 
     port = int(os.environ.get('PORT', 5000))
